@@ -1,4 +1,8 @@
-<h1 class="title"><span>{</span>Capture-The-Flag<span>}</span></h1>
+<h1 class="title">CN<span>{</span>Capture-The-Flag<span>}</span></h1>
+
+{{#if err}}
+	<h3>{{err}}</h3>
+{{/if}}
 
 <form action="/" method="post">
 	<label for="teamName"><b>Team name:</b></label>
@@ -8,4 +12,6 @@
 	<label for="password"><b>Password:</b></label>
 	<br>
 	<input type="password" name="password" required>
+	<br>
+	<input type="submit" value="Login" class="inputButton">
 </form>

@@ -25,9 +25,20 @@ span {
 
 input{
 	padding: 5px;
+	margin: 5px;
 	color: var(--yellow);
 	border: none;
 	background-color: var(--light-gray);
+}
+
+.inputButton {
+	cursor: pointer;
+	float: right;
+}
+
+.inputButton:hover {
+	background-color: var(--yellow);
+	color: var(--dark-gray);
 }
 
 .container {

@@ -1,8 +1,25 @@
-exports.postLogin = ((req, res) => {
+const shortID = require('short-id');
+const Mongoose = require('../lib/mongoose');
+
+exports.postLogin = (async (req, res) => {
 	let teamName = req.body.teamName;
 	let password = req.body.password;
 
-	res.redirect();
+	if(password.trim() !== process.env.KEY) {
+		res.render('login', {err: 'The entered password is incorrect!'});
+		return;
+	}
+
+	let teamExists = await Mongoose.createTeam(teamName);
+	
+	if(teamExists) {
+		req.session.team = teamName;
+	}
+
+	req.session.userID = shortID.generate();
+	req.session.save();	
+
+	res.redirect('/home');
 });
 
 exports.getLogin = ((req, res) => {

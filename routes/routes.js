@@ -5,11 +5,9 @@ const authController = require('../controllers/auth')
 const loginController = require('../controllers/login');
 const homeController = require('../controllers/home');
 
-router.get('*', authController.checkSession);
-
-router.get('/', loginController.getLogin);
+router.get('/', authController.checkSignedIn, loginController.getLogin);
 router.post('/', loginController.postLogin);
 
-router.get('/home', homeController.getHome);
+router.get('/home', authController.checkSignedOut, homeController.getHome);
 
 module.exports = router;
