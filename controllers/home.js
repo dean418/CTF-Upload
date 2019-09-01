@@ -1,3 +1,4 @@
 exports.getHome = ((req, res) => {
-	res.render('index');
+	console.log(req.session)
+	res.render('index', {team: req.session.team});
 });

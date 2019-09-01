@@ -10,12 +10,9 @@ exports.postLogin = (async (req, res) => {
 		return;
 	}
 
-	let teamExists = await Mongoose.createTeam(teamName);
+	await Mongoose.createTeam(teamName);
 	
-	if(teamExists) {
-		req.session.team = teamName;
-	}
-
+	req.session.team = teamName;
 	req.session.userID = nanoID();
 	req.session.save();	
 

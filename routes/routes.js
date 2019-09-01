@@ -9,5 +9,4 @@ router.get('/', authController.checkSignedIn, loginController.getLogin);
 router.post('/', loginController.postLogin);
 
 router.get('/home', authController.checkSignedOut, homeController.getHome);
-
 module.exports = router;

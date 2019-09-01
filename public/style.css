@@ -3,8 +3,9 @@
 }
 
 :root {
-	--dark-gray: #303030;
-	--light-gray: #505050;
+	--dark-gray: #252528;
+	--medium-gray: #373737;
+	--light-gray: #606060;
 	--yellow: #f5b32f;
 }
 
@@ -13,6 +14,16 @@ html, body {
 	height: 100%;
 	margin: 0;
 	background-color: var(--dark-gray);
+}
+
+p, h1, h2, h3{
+	margin: 0;
+}
+
+a {
+	margin: 4px 0;
+	color: var(--yellow);
+	text-decoration: none;
 }
 
 label {
@@ -28,12 +39,29 @@ input{
 	margin: 5px;
 	color: var(--yellow);
 	border: none;
+	border-radius: 3px;
 	background-color: var(--light-gray);
+}
+
+nav {
+	max-width: 100%;
+	padding: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	background-color: var(--medium-gray);
+}
+
+#teamName {
+	float: right
 }
 
 .inputButton {
 	cursor: pointer;
 	float: right;
+	border-radius: 3px;
 }
 
 .inputButton:hover {
@@ -44,6 +72,7 @@ input{
 .container {
 	width: 100%;
 	height: 100%;
+	max-height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -52,4 +81,44 @@ input{
 
 .title {
 	color: var(--yellow);
+}
+
+#teamName {
+	color: var(--yellow);
+}
+
+.card {
+	padding: 8px;
+	display: flex;
+	margin-bottom: 2.5%;
+	flex-direction: column;
+	color: #ddd;
+	background-color: var(--medium-gray);
+	border-left: 4px solid var(--yellow);
+}
+
+.cardHead {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.description {
+	width: 100%;
+	margin-top: 15px;
+}
+
+.flagInput {
+	width: 50%;
+	margin:5px 0 0 0;
+	border-radius: 3px;
+}
+
+.flagSubmit {
+	float: right;
+	cursor: pointer;
+	border-radius: 3px;
+	border: 1px solid var(--light-gray);
+	background-color: var(--medium-gray);
 }
