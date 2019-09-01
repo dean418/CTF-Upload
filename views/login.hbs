@@ -1,19 +1,21 @@
 <div class="container">
-	<h1 class="title">CN<span>{</span>Capture-The-Flag<span>}</span></h1>
 
 	{{#if err}}
 		<h3>{{err}}</h3>
 	{{/if}}
 
-	<form action="/" method="post">
-		<label for="teamName"><b>Team name:</b></label>
-		<br>
-		<input type="text" name="teamName" required>
-		<br>
-		<label for="password"><b>Password:</b></label>
-		<br>
-		<input type="password" name="password" required>
-		<br>
-		<input type="submit" value="Login" class="inputButton">
+	<form action="/" method="post" class="loginForm">
+		<h1 class="title">CN<span>{</span>Capture-The-Flag<span>}</span></h1>
+		<div>
+			<label for="teamName"><b>Team name:</b></label>
+			<br>
+			<input type="text" name="teamName" required>
+			<br>
+			<label for="password"><b>Password:</b></label>
+			<br>
+			<input type="password" name="password" required>
+			<br>
+			<input type="submit" value="Login" class="submitButton">
+		</div>
 	</form>
 </div>

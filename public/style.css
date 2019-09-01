@@ -36,10 +36,10 @@ span {
 
 input{
 	padding: 5px;
-	margin: 5px;
-	color: var(--yellow);
+	margin:5px 0 0 0;
 	border: none;
 	border-radius: 3px;
+	color: var(--yellow);
 	background-color: var(--light-gray);
 }
 
@@ -51,6 +51,16 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	color: white;
+	background-color: var(--medium-gray);
+}
+
+.loginForm {
+	width: 100%;
+	padding: 5px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	background-color: var(--medium-gray);
 }
 
@@ -80,6 +90,7 @@ nav {
 }
 
 .title {
+	margin-bottom: 5px;
 	color: var(--yellow);
 }
 
@@ -109,13 +120,7 @@ nav {
 	margin-top: 15px;
 }
 
-.flagInput {
-	width: 50%;
-	margin:5px 0 0 0;
-	border-radius: 3px;
-}
-
-.flagSubmit {
+.submitButton {
 	float: right;
 	cursor: pointer;
 	border-radius: 3px;
