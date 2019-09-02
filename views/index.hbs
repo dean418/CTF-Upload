@@ -1,21 +1,21 @@
 {{> navbar}}
 
 <div class="container">
-	{{!-- {{#each challenge}} --}}
+	{{#each challenges}}
 	<div class="card">
 		<div class="cardHead">
-			<h3>title</h3>
-			<h3>type</h3>
+			<h3>{{@key}}</h3>
+			<h3>{{this.type}}</h3>
 		</div>
 
-		<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		<p class="description">{{this.description}}</p>
 
-		<a href="#">title.zip</a>
+		<a href="#">{{this.attachment}}</a>
 
 		<form action="/home" method="POST">
 			<input type="text" placeholder="Format: CTF{fl4g}">
 			<input type="submit" class="submitButton" value="Submit">
 		</form>
 	</div>
-	{{!-- {{/each}} --}}
+	{{/each}}
 </div>

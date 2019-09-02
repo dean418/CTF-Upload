@@ -14,5 +14,6 @@ router.get('/home', authController.checkSignedOut, homeController.getHome);
 router.get('/admin', adminController.getAdmin);
 router.post('/admin', adminController.postAdmin);
 
-router.get('/adminPanel', adminController.getAdminPanel);
+router.post('/admin/:command', adminController.handleCommand);
+
 module.exports = router;

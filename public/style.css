@@ -34,9 +34,10 @@ span {
 	color: #fff;
 }
 
+
 input{
 	padding: 5px;
-	margin:5px 0 0 0;
+	margin: 15px 0 0 0;
 	border: none;
 	border-radius: 3px;
 	color: var(--yellow);
@@ -92,6 +93,7 @@ nav {
 .title {
 	margin-bottom: 5px;
 	color: var(--yellow);
+	text-align: center;
 }
 
 #teamName {
@@ -99,6 +101,8 @@ nav {
 }
 
 .card {
+	min-width: 40%;
+	max-width: 40%;
 	padding: 8px;
 	display: flex;
 	margin-bottom: 2.5%;
@@ -118,12 +122,51 @@ nav {
 .description {
 	width: 100%;
 	margin-top: 15px;
+	overflow-wrap: break-word;
 }
 
 .submitButton {
 	float: right;
 	cursor: pointer;
 	border-radius: 3px;
-	border: 1px solid var(--light-gray);
+	border: 1px solid var(--yellow);
 	background-color: var(--medium-gray);
+}
+
+.admin {
+	flex-direction: row;
+}
+
+.newChallenge {
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+	color: #ddd;
+	background-color: var(--medium-gray);
+}
+
+.formHead {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.headTitle {
+	margin: 0 15px 0 0;
+}
+
+.headType {
+	margin: 0 0 0 0;
+}
+
+.attachment {
+	width: 40%;
+}
+
+.formFooter {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
