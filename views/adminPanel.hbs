@@ -7,11 +7,23 @@
 			<input type="text" name="type" placeholder="Type" class="headType">
 		</div>
 
-		<input type="text" name="description" placeholder="Description" class="">
+		<input type="text" name="description" placeholder="Description">
+		<input type="text" name="flag" placeholder="Flag" class="flag">
 		
 		<div class="formFooter">
 			<input type="file" name="attachment" class="attachment">
 			<input type="submit" value="Submit" class="submitButton">
 		</div>
+	</form>
+
+	<form action="/admin/getTeams" method="POST" class="getTeams">
+		<h1 class="title">Teams</h1>
+		<ul>
+			{{#each data}}
+			<li>{{@key}} : {{this.flags}}</li>
+			{{/each}}
+		</ul>
+
+		<input type="submit" value="Get teams" class="submitButton">
 	</form>
 </div>

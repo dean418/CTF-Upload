@@ -22,6 +22,7 @@ const IN_PROD = NODE_ENV === 'production';
 
 mongoose.connect(`mongodb+srv://Dean:${MONGO_PASS}@ctf-aeu8n.mongodb.net/ctf?retryWrites=true&w=majority`, {
 	useNewUrlParser: true,
+	useFindAndModify: false
 });
 
 app.use(session({

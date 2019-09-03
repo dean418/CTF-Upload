@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const Command = require('../lib/command');
+const Mongoose = require('../lib/mongoose');
 
 exports.getAdmin = ((req, res) => {
 	res.render('admin')
@@ -14,18 +15,26 @@ exports.postAdmin = ((req, res) => {
 	}
 });
 
-exports.handleCommand = ((req, res) => {
-	let zip = req.files.attachment;
-	let title = req.body.title;
-	let type = req.body.type;
-	let description = req.body.description;
-	let attachment = zip.name
-	
+exports.handleCommand = (async(req, res) => {
+	let data = {};
+
 	switch(req.params.command) {
 		case 'newChallenge':
-			Command.newChallenge(title, type, description, attachment);
+			let zip = req.files.attachment;
+
+			Command.newChallenge(req.body.title, req.body.type, req.body.description, zip.name, req.body.flag);
 			fs.writeFileSync(path.join(__dirname, '/../public/challenges/', zip.name), zip.data.toString());
 			break;
+		case 'getTeams':
+			let teamsObj = await Mongoose.getTeams();
+			let teams = {}
+
+			for(let team of teamsObj) {
+				teams[team.name] = {flags: team.flags}
+			}
+
+			data = teams;
+			break;
 	}
-	res.status(200).render('adminPanel');
+	res.status(200).render('adminPanel', {data});
 });

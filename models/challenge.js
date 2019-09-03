@@ -5,6 +5,7 @@ const challenge = new Schema({
 	type: {type: String, required: true},
 	description: {type: String, required: true},
 	attachment: {type: String, required: true},
+	flag: {type: String, required: true}
 });
 
 module.exports = model('challenges', challenge);

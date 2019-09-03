@@ -10,6 +10,7 @@ router.get('/', authController.checkSignedIn, loginController.getLogin);
 router.post('/', loginController.postLogin);
 
 router.get('/home', authController.checkSignedOut, homeController.getHome);
+router.post('/home/:challenge', homeController.checkFlag);
 
 router.get('/admin', adminController.getAdmin);
 router.post('/admin', adminController.postAdmin);

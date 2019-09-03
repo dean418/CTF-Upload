@@ -1,7 +1,7 @@
-const Command = require('../lib/command');
+const Mongoose = require('../lib/mongoose');
 
 exports.getHome = (async(req, res) => {
-	const DBChallenges = await Command.getAllChallenges();
+	const DBChallenges = await Mongoose.getAllChallenges();
 	
 	let challenges = {}
 
@@ -13,13 +13,21 @@ exports.getHome = (async(req, res) => {
 		}
 	}
 
-	res.render('index', {team: req.session.team, challenges});
+	res.render('index', {team: req.session.team, challenges, result: req.query.result});
 });
 
-// challenges{
-// 	title{
-// 		type,
-// 		description,
-// 		attachment
-// 	}
-// }
+exports.checkFlag = (async(req, res) => {
+	let inputChallenge = req.params.challenge;
+	let inputFlag = req.body.flag;
+
+	let challenge = await Mongoose.getChallenge(inputChallenge);
+
+	if(challenge[0].flag == inputFlag) {
+		console.log('yep')
+		Mongoose.addFlag(req.session.team, inputFlag);
+		
+		res.redirect(`/home/?result=${encodeURIComponent('You found a flag!')}`);
+	} else {
+		res.redirect(`/home/?result=${encodeURIComponent('That\'s not a flag!')}`);
+	}
+});
