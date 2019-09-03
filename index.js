@@ -4,6 +4,7 @@ const hbs = require('express-handlebars');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 const express = require('express');
 
 const app = express();
@@ -42,8 +43,8 @@ app.set('view engine', '.hbs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(fileUpload({safeFileNames: true, preserveExtension: true}));
 app.use(bodyParser.json());
-
 
 app.use('/', routes);
 

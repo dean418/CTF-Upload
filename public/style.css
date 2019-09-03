@@ -161,7 +161,14 @@ nav {
 }
 
 .attachment {
-	width: 40%;
+	width: 50%;
+	padding: 0;
+	margin: 15px 0 0 0;
+	border: none;
+	border-radius: 0px;
+	cursor: pointer;
+	color: var(--yellow);
+	background-color: var(--medium-gray);
 }
 
 .formFooter {

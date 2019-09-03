@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const Command = require('../lib/command');
 
 exports.getAdmin = ((req, res) => {
@@ -13,14 +15,16 @@ exports.postAdmin = ((req, res) => {
 });
 
 exports.handleCommand = ((req, res) => {
+	let zip = req.files.attachment;
 	let title = req.body.title;
 	let type = req.body.type;
 	let description = req.body.description;
-	let attachment = req.body.attachment;
-
+	let attachment = zip.name
+	
 	switch(req.params.command) {
 		case 'newChallenge':
 			Command.newChallenge(title, type, description, attachment);
+			fs.writeFileSync(path.join(__dirname, '/../public/challenges/', zip.name), zip.data.toString());
 			break;
 	}
 	res.status(200).render('adminPanel');
