@@ -23,7 +23,6 @@ exports.checkFlag = (async(req, res) => {
 	let challenge = await Mongoose.getChallenge(inputChallenge);
 
 	if(challenge[0].flag == inputFlag) {
-		console.log('yep')
 		Mongoose.addFlag(req.session.team, inputFlag);
 		
 		res.redirect(`/home/?result=${encodeURIComponent('You found a flag!')}`);
