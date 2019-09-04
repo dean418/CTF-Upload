@@ -23,9 +23,14 @@ exports.checkFlag = (async(req, res) => {
 	let challenge = await Mongoose.getChallenge(inputChallenge);
 
 	if(challenge[0].flag == inputFlag) {
-		Mongoose.addFlag(req.session.team, inputFlag);
+		let hasFlag = Mongoose.addFlag(req.session.team, inputFlag);
+		let message = 'You found a flag!';
+
+		if(hasFlag) {
+			message = 'You have already submitted that flag!'
+		}
 		
-		res.redirect(`/home/?result=${encodeURIComponent('You found a flag!')}`);
+		res.redirect(`/home/?result=${encodeURIComponent(message)}`);
 	} else {
 		res.redirect(`/home/?result=${encodeURIComponent('That\'s not a flag!')}`);
 	}

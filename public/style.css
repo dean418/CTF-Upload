@@ -194,3 +194,36 @@ nav {
 	color: #ddd;
 	background-color: var(--medium-gray);
 }
+
+.resultContainer {
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.result {
+	opacity: 1;
+	animation: hideResult  linear 3s forwards;
+}
+
+.timeBar {
+	width: 100%;
+	height: 5px;
+	margin-top: 2px;
+	display: inline-block;
+	background-color: var(--yellow);
+	animation: barTimeout linear 3s forwards;
+}
+
+@keyframes hideResult {
+    to {	
+		opacity: 0;
+	}
+}
+
+@keyframes barTimeout {
+	to {
+		width: 0%;
+	}
+}
