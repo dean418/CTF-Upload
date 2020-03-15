@@ -2,7 +2,7 @@
 
 Platform for users to set-up a capture the flag style challenge where an admin can create challenges and teams can download and submit answers to challenges.
 
-this application has a demo that you can view [here](#)
+this application has a demo that you can view [here](https://ctf-upload.herokuapp.com)
 
 the admin password is `admin`
 the ctf password is `abc`
