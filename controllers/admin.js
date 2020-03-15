@@ -20,10 +20,11 @@ exports.handleCommand = (async(req, res) => {
 
 	switch(req.params.command) {
 		case 'newChallenge':
+
 			let zip = req.files.attachment;
 
 			Command.newChallenge(req.body.title, req.body.type, req.body.description, zip.name, req.body.flag);
-			fs.writeFileSync(path.join(__dirname, '/../public/challenges/', zip.name), zip.data.toString());
+			fs.writeFileSync(path.join(__dirname, '/../public/challenges/', zip.name), zip.data);
 			break;
 		case 'getTeams':
 			let teamsObj = await Mongoose.getTeams();

@@ -17,4 +17,9 @@ router.post('/admin', adminController.postAdmin);
 
 router.post('/admin/:command', adminController.handleCommand);
 
+router.get('/logout', (req, res) => {
+	req.session.destroy();
+	res.redirect('/');
+})
+
 module.exports = router;

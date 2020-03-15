@@ -9,27 +9,21 @@ const express = require('express');
 
 const app = express();
 
+require('dotenv').config();
+
 const routes = require('./routes/routes.js');
 
-const {
-	PORT = 3000,
-	NODE_ENV = 'development',
-	SECRET,
-	MONGO_PASS,
-} = process.env;
-
+const NODE_ENV = process.env;
 const IN_PROD = NODE_ENV === 'production';
 
-mongoose.connect(`mongodb+srv://Dean:${MONGO_PASS}@ctf-aeu8n.mongodb.net/ctf?retryWrites=true&w=majority`, {
+mongoose.connect(process.env.DB_URL, {
 	useNewUrlParser: true,
 	useFindAndModify: false
 });
 
 app.use(session({
-    store: new MongoStore({
-		url: `mongodb+srv://Dean:${MONGO_PASS}@ctf-aeu8n.mongodb.net/ctf?retryWrites=true&w=majority`,
-    }),
-    secret: SECRET,
+    store: new MongoStore({mongooseConnection: mongoose.connection}),
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -53,4 +47,4 @@ app.use((req, res) => {
 	res.status(404).render('404');
 })
 
-app.listen(PORT);
+app.listen(process.env.PORT || 3000);
