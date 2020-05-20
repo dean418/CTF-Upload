@@ -13,9 +13,11 @@
 		<a href="challenges/{{this.attachment}}">{{this.attachment}}</a>
 
 		<form action="/home/{{@key}}" method="POST">
-			<input type="text" name="flag" placeholder="Format: CTF{fl4g}">
+			<input type="text" name="flag" placeholder="Demo flag: CTF{someFl4g}">
 			<input type="submit" class="submitButton" value="Submit">
 		</form>
 	</div>
 	{{/each}}
 </div>
+
+{someFl4g}
