@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const Command = require('../lib/command');
-const Mongoose = require('../lib/mongoose');
+// const Mongoose = require('../lib/mongoose');
+const Team = require('../models/team');
 
 exports.getAdmin = ((req, res) => {
 	res.render('admin')
@@ -27,7 +28,7 @@ exports.handleCommand = (async(req, res) => {
 			fs.writeFileSync(path.join(__dirname, '/../public/challenges/', zip.name), zip.data);
 			break;
 		case 'getTeams':
-			let teamsObj = await Mongoose.getTeams();
+			let teamsObj = await Team.getTeams();
 			let teams = {}
 
 			for(let team of teamsObj) {

@@ -8,4 +8,14 @@ const challenge = new Schema({
 	flag: {type: String, required: true}
 });
 
+challenge.statics.getAllChallenges = async function () {
+	const challenges = await this.find({});
+	return challenges;
+}
+
+challenge.statics.getChallenge = async function (title) {
+	let challenge = await this.findOne({title});
+	return challenge;
+}
+
 module.exports = model('challenges', challenge);

@@ -1,5 +1,6 @@
 const nanoID = require('nanoid');
-const Mongoose = require('../lib/mongoose');
+// const Mongoose = require('../lib/mongoose');
+const Team = require('../models/team');
 
 exports.postLogin = (async (req, res) => {
 	let teamName = req.body.teamName;
@@ -10,7 +11,7 @@ exports.postLogin = (async (req, res) => {
 		return;
 	}
 
-	await Mongoose.createTeam(teamName);
+	await Team.createTeam(teamName);
 
 	req.session.team = teamName;
 	req.session.userID = nanoID();

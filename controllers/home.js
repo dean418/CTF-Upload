@@ -1,7 +1,9 @@
 const Mongoose = require('../lib/mongoose');
+const Team = require('../models/team');
+const Challenge = require('../models/challenge');
 
 exports.getHome = (async(req, res) => {
-	const DBChallenges = await Mongoose.getAllChallenges();
+	const DBChallenges = await Challenge.getAllChallenges();
 
 	let challenges = {}
 
@@ -20,11 +22,10 @@ exports.checkFlag = (async(req, res) => {
 	let inputChallenge = req.params.challenge;
 	let inputFlag = req.body.flag;
 
-	let challenge = await Mongoose.getChallenge(inputChallenge);
+	let challenge = await Challenge.getChallenge(inputChallenge);
 
-
-	if(challenge[0].flag == inputFlag) {
-		let hasFlag = await Mongoose.addFlag(req.session.team, inputFlag);
+	if(challenge.flag == inputFlag) {
+		let hasFlag = await Team.addFlag(req.session.team, inputFlag);
 		let message = 'You found a flag!';
 
 		if(hasFlag) {
