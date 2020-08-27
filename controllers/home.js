@@ -1,4 +1,3 @@
-const Mongoose = require('../lib/mongoose');
 const Team = require('../models/team');
 const Challenge = require('../models/challenge');
 

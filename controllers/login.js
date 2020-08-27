@@ -1,5 +1,4 @@
 const nanoID = require('nanoid');
-// const Mongoose = require('../lib/mongoose');
 const Team = require('../models/team');
 
 exports.postLogin = (async (req, res) => {

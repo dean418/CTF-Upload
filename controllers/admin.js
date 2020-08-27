@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+
 const Command = require('../lib/command');
-// const Mongoose = require('../lib/mongoose');
 const Team = require('../models/team');
 
 exports.getAdmin = ((req, res) => {
