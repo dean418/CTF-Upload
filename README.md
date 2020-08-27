@@ -10,7 +10,7 @@ the ctf password is `abc`
 This project was created using NodeJS, ExpressJS, MongoDB and Handlebarsjs
 
 ## Set-up
-Tso run your own version of this project you will need a `.env` file with the following variables:
+To run your own version of this project you will need a `.env` file with the following variables:
 
 * `SECRET`: a secret for the session created by express
 * `DB_URL`: a connection string to a mongoDB database
