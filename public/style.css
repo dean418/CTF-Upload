@@ -1,5 +1,4 @@
 * {
-	font-family: 'Open Sans';
 }
 
 :root {
@@ -14,6 +13,7 @@ html, body {
 	height: 100%;
 	margin: 0;
 	background-color: var(--dark-gray);
+	font-family: 'Helvetica';
 }
 
 p, h1, h2, h3{
@@ -33,7 +33,6 @@ label {
 span {
 	color: #fff;
 }
-
 
 input{
 	padding: 5px;
@@ -217,7 +216,7 @@ nav {
 }
 
 @keyframes hideResult {
-    to {	
+    to {
 		opacity: 0;
 	}
 }
