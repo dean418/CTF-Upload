@@ -10,7 +10,8 @@ exports.getHome = (async(req, res) => {
 		challenges[challenge.title] = {
 			type: challenge.type,
 			description: challenge.description,
-			attachment: challenge.attachment
+			attachment: challenge.attachment,
+			location: challenge.location
 		}
 	}
 

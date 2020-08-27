@@ -5,7 +5,10 @@ const challenge = new Schema({
 	type: {type: String, required: true},
 	description: {type: String, required: true},
 	attachment: {type: String, required: true},
+	location: {type: String, required: true},
 	flag: {type: String, required: true}
+}, {
+	toObject: {virtuals: true}
 });
 
 challenge.statics.getAllChallenges = async function () {

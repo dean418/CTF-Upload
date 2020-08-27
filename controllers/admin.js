@@ -1,8 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const nanoid = require('nanoid');
 
 const Command = require('../lib/command');
 const Team = require('../models/team');
+const aws = require('../lib/aws');
 
 exports.getAdmin = ((req, res) => {
 	res.render('admin')
@@ -23,9 +25,9 @@ exports.handleCommand = (async(req, res) => {
 		case 'newChallenge':
 
 			let zip = req.files.attachment;
+			let location = await aws.upload(zip.name, zip.data);
 
-			Command.newChallenge(req.body.title, req.body.type, req.body.description, zip.name, req.body.flag);
-			fs.writeFileSync(path.join(__dirname, '/../public/challenges/', zip.name), zip.data);
+			Command.newChallenge(req.body.title, req.body.type, req.body.description, zip.name, req.body.flag, location);
 			break;
 		case 'getTeams':
 			let teamsObj = await Team.getTeams();
